@@ -69,6 +69,11 @@ describe("Probar GameBoard", function(){
 			juego.resetRemoved();
 			juego.remove(3);
 			expect(3).toEqual(juego.removed[0]);
+			
+			var resultado = juego.add(3);
+			juego.finalizeRemoved();
+			expect(3).toEqual(juego.removed[0]);
+			expect(juego.objects).toEqual([]);
 		});
 
 });
