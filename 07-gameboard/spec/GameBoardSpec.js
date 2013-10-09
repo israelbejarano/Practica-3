@@ -61,7 +61,14 @@ describe("Probar GameBoard", function(){
 
 		it("testeo la funcion add", function(){
 			var juego = new GameBoard();
-			expect(juego.add("3")).toEqual(juego.objects[0]);
+			expect(juego.add(3)).toEqual(juego.objects[0]);
+		});
+		
+		it("testeo la funcion remove, resetRemoved y finalizeRemoved", function(){
+			var juego = new GameBoard();
+			juego.resetRemoved();
+			juego.remove(3);
+			expect(3).toEqual(juego.removed[0]);
 		});
 
 });
