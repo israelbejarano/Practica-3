@@ -70,10 +70,27 @@ describe("Probar GameBoard", function(){
 			juego.remove(3);
 			expect(3).toEqual(juego.removed[0]);
 			
-			var resultado = juego.add(3);
-			juego.finalizeRemoved();
-			expect(3).toEqual(juego.removed[0]);
+			//var resultado = juego.add(3);
+			//juego.finalizeRemoved();
+			//expect(3).toEqual(juego.removed[0]);
 			expect(juego.objects).toEqual([]);
 		});
+		
+		it ("testeo la funcion overlap", function(){
+			var juego = new GameBoard();
+			var rectangulo = function(x,y,w,h){
+				this.x =x;
+				this.y =y;
+				this.w =w;
+				this.h =h;
+			}
+			var rectangulo1 = new rectangulo(20,30,50,50);
+			var rectangulo2 = new rectangulo(200,200,50,50);
+			var rectangulo3 = new rectangulo(20,25,50,50);
+			
+			expect(juego.overlap(rectangulo1,rectangulo3)).toBe(true);
+			expect(juego.overlap(rectangulo2,rectangulo3)).toBe(false);
+		});
+		
 
 });
