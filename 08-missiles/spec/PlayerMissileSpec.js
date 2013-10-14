@@ -27,3 +27,18 @@
     la clase en el prototipo
 
 */
+
+describe ("testeo la clase missile", function(){
+	it("testeo el step", function(){
+		SpriteSheet.map = {
+			missile: {sx:0, sy:30, w:2, h:10, frames:1}
+		};
+		var tablero = {
+			remove: function(){return 1},
+		};
+		var tomahawk = new PlayerMissile(2,2);
+		tomahawk.board = tablero;
+		tomahawk.step(1);
+		expect(tomahawk.y).toEqual(-708);
+	});
+});
