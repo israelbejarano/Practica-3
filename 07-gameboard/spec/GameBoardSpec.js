@@ -91,7 +91,27 @@ describe("Probar GameBoard", function(){
 			expect(juego.overlap(rectangulo1,rectangulo3)).toBe(true);
 			expect(juego.overlap(rectangulo2,rectangulo3)).toBe(false);
 		});
-		it ("testeo las funciones iterate y detect", function(){
+		it ("testeo las funcion iterate", function(){
+			var juego = new GameBoard();
+			var objetoprueba1 = {
+				valor: 1,
+				testeo: function(){
+					return this.valor;
+				}
+			};
+			var objetoprueba2 = {
+				valor: 2,
+				testeo: function(){
+					return this.valor;
+				}
+			};
+			
+			spyOn(objetoprueba1,"testeo");
+			spyOn(objetoprueba2,"testeo");
+			juego.add(objetoprueba1);
+			juego.add(objetoprueba2);
+			juego.iterate("testeo");
+			_.each(juego.objects, function(element, index, list){expect(element.testeo).toHaveBeenCalled()});
 			
 		});
 
