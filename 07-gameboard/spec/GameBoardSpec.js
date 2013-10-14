@@ -91,6 +91,8 @@ describe("Probar GameBoard", function(){
 			expect(juego.overlap(rectangulo1,rectangulo3)).toBe(true);
 			expect(juego.overlap(rectangulo2,rectangulo3)).toBe(false);
 		});
-		
+		it ("testeo las funciones iterate y detect", function(){
+			
+		});
 
 });
