@@ -114,5 +114,26 @@ describe("Probar GameBoard", function(){
 			_.each(juego.objects, function(element, index, list){expect(element.testeo).toHaveBeenCalled()});
 			
 		});
+		
+		it ("testeo la funcion detect", function(){
+			var juego = new GameBoard();
+			
+			var objetomaster = {
+				valor: 5,
+				testeo: function(){return this.valor}
+			};
+			
+			var objetoprueba1 = {
+				valor: 10
+			};
+			var objetoprueba2 = {
+				valor: 15
+			};
+			juego.add(objetoprueba1);
+			juego.add(objetoprueba2);
+			
+			var objetodetect = juego.detect(objetomaster.testeo);
+			_.each(juego.objects, function(element, index, list){expect(list[0].valor).toEqual(objetodetect.valor)});
+		});
 
 });
